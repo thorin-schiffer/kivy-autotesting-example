@@ -1,0 +1,5 @@
+Cython
+Kivy
+pytest
+pytest-xdist
+lxml
