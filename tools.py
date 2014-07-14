@@ -19,22 +19,9 @@ def without_schedule_seconds(function):
 
     return inner
 
-
-def wait(seconds):
-    def real_decorator(function):
-        def wrapper(*args, **kwargs):
-            Clock.schedule_once(partial(without_schedule_seconds(function), *args, **kwargs), seconds)
-
-        return wrapper
-
-    return real_decorator
-
-
 def simulate(function):
     def simulate_inner(simulator, params):
         simulator.start(function, params or {})
-
-    simulate_inner.settings = getattr(function, "settings", {})
     return simulate_inner
 
 
@@ -44,13 +31,3 @@ def execution_step(function):
 
     return execution_step_inner
 
-
-def override_settings(**settings):
-    def real_override_settings(function):
-        def inner_override_settings(*args, **kwargs):
-            function(*args, **kwargs)
-
-        inner_override_settings.settings = settings
-        return inner_override_settings
-
-    return real_override_settings
