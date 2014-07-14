@@ -78,9 +78,11 @@ class Simulator(object):
         return seconds
 
     def start(self, callback, params):
-        Clock.schedule_once(partial(without_schedule_seconds(callback), self, **params), self.START_DELAY)
+        callback(self, **params)
+        Clock.schedule_once(self.execute, self.START_DELAY)
         if not self.app.built:
             self.app.run()
+
 
     def stop(self, _):
         self.app.stop()

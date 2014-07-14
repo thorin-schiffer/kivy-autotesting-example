@@ -8,7 +8,6 @@ from simulator_fixture import simulator
 def test_example(simulator):
 
     # widgets are selected with xpath
-    simulator.assert_exists("/RootWidget")
     simulator.assert_count("//RootWidget//Button", 3)
 
     # deep tree goes reversed through the tree
@@ -25,5 +24,3 @@ def test_example(simulator):
     simulator.assert_text("//RootWidget//StatusLabel", "Second pressed")
 
     simulator.assert_disabled("//RootWidget//Button[1]")
-
-    simulator.execute()
