@@ -1,0 +1,25 @@
+<StatusLabel@Label>:
+    name: "status"
+
+
+<RootWidget>:
+    orientation: "vertical"
+    StatusLabel:
+        color: 1, 1, 1, 1
+        text: "Status"
+        id: status
+    GridLayout:
+        rows: 1
+        columns: 3
+        Button:
+            text: "First"
+            on_press: status.text = "First pressed"
+        Button:
+            text: "Second"
+            on_press: status.text = "Second pressed"
+        Button:
+            text: "Third"
+            on_press: status.text = "Third pressed"
+            disabled: True
+
+
