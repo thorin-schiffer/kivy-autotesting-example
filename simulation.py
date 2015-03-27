@@ -3,7 +3,8 @@ from lxml import etree
 from kivy import Logger
 
 from kivy.animation import Animation
-from kivy.properties import StringProperty, BooleanProperty, Clock
+from kivy.properties import StringProperty, BooleanProperty
+from kivy.clock import Clock
 
 from tools import execution_step, without_schedule_seconds
 
