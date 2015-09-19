@@ -1,6 +1,6 @@
 from functools import partial
 
-from kivy.properties import Clock
+from kivy.clock import Clock
 
 
 def to_task(s):
