@@ -42,7 +42,7 @@ class Simulator(object):
             print "Error while creating  element. %s, %s" % (props, ex)
             raise ex
         self.collected_widgets.append(widget)
-        for child in widget.children:
+        for child in widget.children[::-1]:
             element.append(self.build_deep(child))
         return element
 
