@@ -38,8 +38,8 @@ class Simulator(object):
         props = self._get_prop_values(widget)
         try:
             element = etree.Element(widget.__class__.__name__, __element_id=str(len(self.collected_widgets)), **props)
-        except TypeError, ex:
-            print "Error while creating  element. %s, %s" % (props, ex)
+        except TypeError as ex:
+            print("Error while creating  element. %s, %s" % (props, ex))
             raise ex
         self.collected_widgets.append(widget)
         for child in widget.children[::-1]:
